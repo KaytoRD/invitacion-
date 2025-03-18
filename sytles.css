@@ -1,0 +1,202 @@
+body {
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+    font-family: 'Dancing Script', cursive; /* Nueva fuente */
+    text-align: center;
+    color: white;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Fondo animado con corazones */
+#heart-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+/* Animación de los corazones */
+.heart {
+    position: absolute;
+    font-size: 1.5em;
+    color: rgba(255, 50, 80, 0.8);
+    animation: floatUp 5s linear infinite;
+}
+
+@keyframes floatUp {
+    from { transform: translateY(100vh); opacity: 1; }
+    to { transform: translateY(-10vh); opacity: 0; }
+}
+
+/* Gatito de fondo */
+.bg-cat {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 200px;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+/* Gatos en los costados */
+.side-cat {
+    position: fixed;
+    top: 50%;
+    width: 150px;
+    transform: translateY(-50%);
+}
+
+.left-cat {
+    left: 10px;
+}
+
+.right-cat {
+    right: 10px;
+}
+
+/* Efecto Glassmorphism en la caja de la pregunta */
+.container {
+    margin-top: 100px;
+    background: rgba(255, 255, 255, 0.15); /* Fondo translúcido */
+    padding: 20px;
+    border-radius: 15px;
+    display: inline-block;
+    position: relative;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px); /* Difuminado */
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Borde decorativo */
+.container::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 20px;
+    border: 2px dashed rgba(255, 255, 255, 0.6);
+    z-index: -1;
+}
+
+h1 {
+    font-size: 2.5em;
+    text-shadow: 2px 2px 5px black;
+}
+
+/* Botones */
+.buttons {
+    margin-top: 20px;
+}
+
+button {
+    font-size: 1.5em;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: 'Dancing Script', cursive;
+}
+
+#yes {
+    background-color: #ff4081;
+    color: white;
+    box-shadow: 0px 5px 15px rgba(255, 64, 129, 0.4);
+}
+
+#yes:hover {
+    background-color: #ff79b0;
+    transform: scale(1.2);
+}
+
+#no {
+    background-color: gray;
+    color: white;
+}
+
+/* Mensaje especial con animación de tipeo */
+#message {
+    display: flex;
+    font-size: 1.8em;
+    margin-top: 20px;
+    justify-content: center;
+    visibility: hidden;
+}
+
+.cursor {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+/* Efecto de balanceo */
+@keyframes balanceo {
+    0%, 100% {
+        transform: translateY(-50%) rotate(-5deg);
+    }
+    50% {
+        transform: translateY(-50%) rotate(5deg);
+    }
+}
+
+/* Aplicar balanceo a los gatos */
+.side-cat, .bg-cat {
+    animation: balanceo 3s ease-in-out infinite;
+}
+
+.heart-confetti {
+    position: absolute;
+    font-size: 1.5em;
+    animation: popUp 1s ease-out;
+}
+
+@keyframes popUp {
+    from { transform: scale(0); opacity: 1; }
+    to { transform: scale(1.5); opacity: 0; }
+}
+
+.side-cat {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(-10px); }
+    50% { transform: translateY(10px); }
+}
+
+.extra-sticker {
+    position: fixed;
+    width: 120px; /* Ajusta según el tamaño que quieras */
+    z-index: 2; /* Asegura que queden sobre el fondo */
+    animation: float 3s ease-in-out infinite alternate;
+}
+
+/* Posicionamiento específico de cada sticker */
+.sticker1 {
+    top: 15%;
+    left: 5%;
+}
+
+.sticker2 {
+    bottom: 10%;
+    right: 25%;
+}
+
+.sticker3 {
+    top: 60%;
+    left: 80%;
+}
+
+/* Efecto de flotación para hacerlos más dinámicos */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(10px); }
+}
